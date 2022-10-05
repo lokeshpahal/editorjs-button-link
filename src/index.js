@@ -115,7 +115,7 @@ export default class ButtonLink {
         const _CSS = {
             baseClass: this.api.styles.block,
             hide: "hide",
-            btn: "btn",
+            btn: "cdx-btn",
             container: "buttonLinkContainer",
             input: "buttonLinkContainer__input",
 
@@ -228,13 +228,17 @@ export default class ButtonLink {
             case ButtonLink.STATE.EDIT:
                 this.nodes.inputHolder.classList.remove(this.CSS.hide);
                 this.nodes.buttonLinkHolder.classList.add(this.CSS.hide);
-                this.nodes.toggleInput.checked = 0;
+                if (!this.readOnly) {
+                    this.nodes.toggleInput.checked = 0;
+                }
 
                 break;
             case ButtonLink.STATE.VIEW:
                 this.nodes.inputHolder.classList.add(this.CSS.hide);
                 this.nodes.buttonLinkHolder.classList.remove(this.CSS.hide);
-                this.nodes.toggleInput.checked = 1;
+                if (!this.readOnly) {
+                    this.nodes.toggleInput.checked = 1;
+                }
                 break;
         }
     }
