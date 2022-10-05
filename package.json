@@ -10,35 +10,21 @@
   ],
   "description": "Button to set link and text for Editor.js",
   "license": "MIT",
-  "main": "./dist/bundle.js",
+  "main": "./dist/button-link.js",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch"
   },
-  "author": "kaaaaaaaaaaai <kaiogita+npm@gmail.com>",
+  "author": "Lokesh Pahal <lokeshpahal2000@gmail.com>",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@editorjs/editorjs": "^2.19.1",
-    "babel-loader": "^8.1.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^3.5.3",
-    "raw-loader": "^4.0.1",
-    "sass": "^1.30.0",
-    "sass-loader": "^10.1.0",
-    "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  },
-  "bugs": {
-    "url": "https://github.com/kaaaaaaaaaaai/editorjs-button/issues"
-  },
-  "homepage": "https://github.com/kaaaaaaaaaaai/editorjs-button#readme",
-  "directories": {
-    "example": "example"
+    "css-loader": "^5.2.1",
+    "style-loader": "^2.0.0",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaaaaaaaaaaai/editorjs-button.git"
+    "url": "https://github.com/lokeshpahal/editorjs-button-link"
   }
 }

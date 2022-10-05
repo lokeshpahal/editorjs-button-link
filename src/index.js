@@ -1,6 +1,6 @@
-import css from './index.css';
+import './styles/index.css';
 
-export default class AnyButton {
+export default class ButtonLink {
 
     /**
      *
@@ -60,7 +60,6 @@ export default class AnyButton {
     }
 
     /**
-     * セーブ時のバリデーション
      * @param savedData
      * @returns {boolean}
      */
@@ -81,7 +80,6 @@ export default class AnyButton {
     }
 
     /**
-     * タグを全部削除する
      * @returns {{link: boolean, text: boolean}}
      */
     static get sanitize(){
@@ -146,7 +144,6 @@ export default class AnyButton {
         this.nodes.wrapper = this.make('div', this.CSS.baseClass);
         this.nodes.container = this.make('div', this.CSS.container); //twitter-embed-tool
 
-        //入力用
         this.nodes.inputHolder = this.makeInputHolder();
         //toggle
         this.nodes.toggleHolder = this.makeToggle();
@@ -268,7 +265,6 @@ export default class AnyButton {
     }
 
     /**
-     * node 作成用
      * @param tagName
      * @param classNames
      * @param attributes
