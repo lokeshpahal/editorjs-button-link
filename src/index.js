@@ -146,12 +146,15 @@ export default class ButtonLink {
 
         this.nodes.inputHolder = this.makeInputHolder();
         //toggle
-        this.nodes.toggleHolder = this.makeToggle();
+        if (!this.readOnly) {
+            this.nodes.toggleHolder = this.makeToggle();
+        }
         //display button
         this.nodes.buttonLinkHolder = this.makeButtonLinkHolder();
 
-
-        this.nodes.container.appendChild(this.nodes.toggleHolder);
+        if (!this.readOnly) {
+            this.nodes.container.appendChild(this.nodes.toggleHolder);
+        }
         this.nodes.container.appendChild(this.nodes.inputHolder);
         this.nodes.container.appendChild(this.nodes.buttonLinkHolder);
 
