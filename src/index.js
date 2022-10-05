@@ -47,8 +47,8 @@ export default class ButtonLink {
      */
     set data(data) {
         this._data = Object.assign({}, {
-            link: this.api.sanitizer.clean(data.link || "", AnyButton.sanitize),
-            text: this.api.sanitizer.clean(data.text || "", AnyButton.sanitize)
+            link: this.api.sanitizer.clean(data.link || "", ButtonLink.sanitize),
+            text: this.api.sanitizer.clean(data.text || "", ButtonLink.sanitize)
         });
     }
     /**
@@ -105,25 +105,25 @@ export default class ButtonLink {
             container: null,
             inputHolder: null,
             toggleHolder: null,
-            anyButtonHolder: null,
+            buttonLinkHolder: null,
             textInput: null,
             linkInput: null,
             registButton: null,
-            anyButton: null,
+            buttonLink: null,
         }
         //css overwrite
         const _CSS = {
             baseClass: this.api.styles.block,
             hide: "hide",
             btn: "btn",
-            container: "anyButtonContainer",
-            input: "anyButtonContainer__input",
+            container: "buttonLinkContainer",
+            input: "buttonLinkContainer__input",
 
-            inputHolder: "anyButtonContainer__inputHolder",
-            inputText: "anyButtonContainer__input--text",
-            inputLink: "anyButtonContainer__input--link",
-            registButton: "anyButtonContainer__registerButton",
-            anyButtonHolder: "anyButtonContainer__anyButtonHolder",
+            inputHolder: "buttonLinkContainer__inputHolder",
+            inputText: "buttonLinkContainer__input--text",
+            inputLink: "buttonLinkContainer__input--link",
+            registButton: "buttonLinkContainer__registerButton",
+            buttonLinkHolder: "buttonLinkContainer__buttonLinkHolder",
             btnColor: "btn--default",
             toggleSwitch: "toggle-switch",
             toggleInput: "toggle-input",
@@ -148,16 +148,16 @@ export default class ButtonLink {
         //toggle
         this.nodes.toggleHolder = this.makeToggle();
         //display button
-        this.nodes.anyButtonHolder = this.makeAnyButtonHolder();
+        this.nodes.buttonLinkHolder = this.makeButtonLinkHolder();
 
 
         this.nodes.container.appendChild(this.nodes.toggleHolder);
         this.nodes.container.appendChild(this.nodes.inputHolder);
-        this.nodes.container.appendChild(this.nodes.anyButtonHolder);
+        this.nodes.container.appendChild(this.nodes.buttonLinkHolder);
 
         if (this._data.link !== "") {
             this.init()
-            this.show(AnyButton.STATE.VIEW)
+            this.show(ButtonLink.STATE.VIEW)
         }
 
         this.nodes.wrapper.appendChild(this.nodes.container);
@@ -188,7 +188,7 @@ export default class ButtonLink {
                 "link": this.nodes.linkInput.textContent,
                 "text": this.nodes.textInput.textContent
             }
-            this.show(AnyButton.STATE.VIEW);
+            this.show(ButtonLink.STATE.VIEW);
         });
 
         inputHolder.appendChild(this.nodes.textInput);
@@ -204,33 +204,33 @@ export default class ButtonLink {
     }
 
     show(state){
-        this.nodes.anyButton.textContent = this._data.text;
-        this.nodes.anyButton.setAttribute("href", this._data.link);
+        this.nodes.buttonLink.textContent = this._data.text;
+        this.nodes.buttonLink.setAttribute("href", this._data.link);
         this.changeState(state);
     }
 
-    makeAnyButtonHolder(){
-        const anyButtonHolder = this.make('div', [this.CSS.hide, this.CSS.anyButtonHolder]);
-        this.nodes.anyButton = this.make('a',[this.CSS.btn, this.CSS.btnColor],{
+    makeButtonLinkHolder(){
+        const buttonLinkHolder = this.make('div', [this.CSS.hide, this.CSS.buttonLinkHolder]);
+        this.nodes.buttonLink = this.make('a',[this.CSS.btn, this.CSS.btnColor],{
             target: '_blank',
             rel: 'nofollow noindex noreferrer',
         });
-        this.nodes.anyButton.textContent = this.api.i18n.t("Default Button");
-        anyButtonHolder.appendChild(this.nodes.anyButton);
-        return anyButtonHolder;
+        this.nodes.buttonLink.textContent = this.api.i18n.t("Default Button");
+        buttonLinkHolder.appendChild(this.nodes.buttonLink);
+        return buttonLinkHolder;
     }
 
     changeState(state){
         switch (state) {
-            case AnyButton.STATE.EDIT:
+            case ButtonLink.STATE.EDIT:
                 this.nodes.inputHolder.classList.remove(this.CSS.hide);
-                this.nodes.anyButtonHolder.classList.add(this.CSS.hide);
+                this.nodes.buttonLinkHolder.classList.add(this.CSS.hide);
                 this.nodes.toggleInput.checked = 0;
 
                 break;
-            case AnyButton.STATE.VIEW:
+            case ButtonLink.STATE.VIEW:
                 this.nodes.inputHolder.classList.add(this.CSS.hide);
-                this.nodes.anyButtonHolder.classList.remove(this.CSS.hide);
+                this.nodes.buttonLinkHolder.classList.remove(this.CSS.hide);
                 this.nodes.toggleInput.checked = 1;
                 break;
         }

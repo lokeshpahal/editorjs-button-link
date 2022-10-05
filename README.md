@@ -1,42 +1,21 @@
-![](https://badgen.net/badge/Editor.js/v2.22.3/blue)
-
 # Set Link and Text and Generate button plugin for Editor.js
 
-![画面収録 2020-12-13 16 59 53](https://user-images.githubusercontent.com/2194021/102006852-7a6fb880-3d67-11eb-98d2-20b7e88672df.gif)
+## How to use
 
-## Installation
+1. Install
 
-### Install via NPM
-
-Get the package
-
-```shell
-npm i --save editorjs-button
+```js
+yarn add @lokeshpahal/editorjs-button-link
 ```
 
-Include module at your application
-
-```javascript
-const anyButton = require('anyButton');
-```
-
-### Download to your project's source dir
-
-1. Upload folder `dist` from repository
-2. Add `dist/bundle.js` file to your page.
-
-### Load from CDN
-
-`https://cdn.jsdelivr.net/npm/editorjs-button@1.0.4`
-
-## Usage
+2. Connect
 
 Add a new Tool to the `tools` property of the Editor.js initial config.
 
 ```javascript
 tools: {
-        AnyButton: {
-          class: AnyButton,
+        ButtonLink: {
+          class: ButtonLink,
           inlineToolbar: false,
           config:{
             css:{
@@ -48,11 +27,11 @@ tools: {
       i18n: {
         messages: {
           tools: {
-            "AnyButton": {
-              'Button Text': 'ボタンに表示するテキスト',
-              'Link Url': 'ボタンの飛び先のURL',
-              'Set': "設定する",
-              'Default Button': "デフォルト",
+            "ButtonLink": {
+              'Button Text': 'My Button',
+              'Link Url': 'https://lokeshpahal.com',
+              'Set': "To set",
+              'Default Button': "Default",
             }
           }
         },
@@ -68,18 +47,18 @@ tools: {
 i18n: {
     messages: {
       tools: {s
-        "AnyButton": {
-          'Button Text': 'ボタンに表示するテキスト',
-          'Link Url': 'ボタンの飛び先のURL',
-          'Set': "設定する",
-          'Default Button': "デフォルト",
+        "ButtonLink": {
+          'Button Text': 'My Button',
+          'Link Url': 'https://lokeshpahal.com',
+          'Set': "To set",
+          'Default Button': "Default",
         }
       }
     },
 },
 ```
 
-if customize css, input filed, button design, and etc... 
+if customize css, input filed, button design, and etc...
 
 ```
 config:{
@@ -99,11 +78,10 @@ config:{
 
 ```json
 {
-            "type" : "AnyButton",
+            "type" : "ButtonLink",
             "data" : {
                 "link" : "https://editorjs.io/",
                 "text" : "editorjs official"
             }
         }
 ```
-

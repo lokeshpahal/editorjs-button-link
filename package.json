@@ -1,6 +1,6 @@
 {
-  "name": "editorjs-button-link",
-  "version": "1.0.1",
+  "name": "@lokeshpahal/editorjs-button-link",
+  "version": "1.0.2",
   "keywords": [
     "codex editor",
     "button",
@@ -23,8 +23,15 @@
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0"
   },
+  "dependencies": {
+    "yarn": "^1.22.19"
+  },
+  "bugs": {
+    "url": "https://github.com/lokeshpahal/editorjs-button-link/issues"
+  },
+  "homepage": "https://github.com/lokeshpahal/editorjs-button-link#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lokeshpahal/editorjs-button-link"
+    "url": "git+https://github.com/lokeshpahal/editorjs-button-link"
   }
 }
